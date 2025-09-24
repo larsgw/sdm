@@ -1,6 +1,6 @@
 # Author: Babak Naimi, naimi.b@gmail.com
-# Date (last update):  August 2025
-# Version 2.8
+# Date (last update):  Sep. 2025
+# Version 2.9
 # Licence GPL v3
 
 setMethod ('show' , 'sdmdata',
@@ -190,7 +190,7 @@ setMethod ('show' , 'sdmModels',
                  a <- as.character(a)
                } else a <- as.character(c(NA,NA,NA,NA))
                b <- c()
-               for (i in a) b <- c(b,paste(i,paste(rep(' ',7 - length(unlist(strsplit(i,'')))),collapse=''),collapse=''))
+               for (i in a) b <- c(b,paste(i,paste(rep(' ',7 - min(length(unlist(strsplit(i,''))),7)),collapse=''),collapse=''))
                paste(b,collapse='|     ')
              }
              

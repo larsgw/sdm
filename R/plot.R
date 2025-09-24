@@ -1,6 +1,6 @@
 # Author: Babak Naimi, naimi.b@gmail.com
-# Date (last update):  Feb 2024
-# Version 3.3
+# Date (last update):  Sep. 2025
+# Version 3.4
 # Licence GPL v3
 #---------------------
 
@@ -354,7 +354,7 @@ setMethod("plot", signature(x='.responseCurve'),
                       drc <- rbind(drc,data.frame(Value=x@response[[nn]][,1],Response=.m,lower=.m - .ci,upper=.m + .ci,variable=nn))
                     }
                     
-                    p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,size=lwd,linetype=lty) + geom_ribbon(aes(ymin=lower, ymax=upper), linetype=1, alpha=0.2) + 
+                    p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,linewidth=lwd,linetype=lty) + geom_ribbon(aes(ymin=lower, ymax=upper), linetype=1, alpha=0.2) + 
                       facet_grid(.~variable,scales='free_x') + labs(y = ylab,x = xlab) + ggtitle(main) +
                       theme(axis.text=element_text(size=rel(cex.axis)),axis.title=element_text(size=rel(cex.lab)),plot.title = element_text(hjust = 0.5))"
                     p1 <- .eval(p1,env=environment())
@@ -386,7 +386,7 @@ setMethod("plot", signature(x='.responseCurve'),
                       drc <- rbind(drc,data.frame(Value=x@response[[nn]][,1],Response=apply(x@response[[nn]][,2:ncol(x@response[[nn]])],1,mean,na.rm=TRUE),variable=nn))
                     }
                     
-                    p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,size=lwd,linetype=lty) + 
+                    p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,linewidth=lwd,linetype=lty) + 
                       facet_grid(.~variable,scales='free_x') + scale_y_continuous(limits=ylim) + labs(y = ylab,x = xlab)  + ggtitle(main) +
                       theme(axis.text=element_text(size=rel(cex.axis)),axis.title=element_text(size=rel(cex.lab)),plot.title = element_text(hjust = 0.5))"
                     
@@ -420,8 +420,8 @@ setMethod("plot", signature(x='.responseCurve'),
                   }
                 }
                 
-                p1 <- ".p1 <- ggplot(drc,aes(x=Value)) + geom_line(aes_string(y=colnames(drc)[3]),colour=col,size=lwd,linetype=lty) +scale_y_continuous(name = ylab,limits = c(0,1)) + facet_grid(.~variable,scales='free_x')
-                for (nn in colnames(drc)[4:ncol(drc)]) .p1 <- .p1 + geom_line(aes_string(y=nn),colour=col,size=lwd,linetype=lty)"
+                p1 <- ".p1 <- ggplot(drc,aes(x=Value)) + geom_line(aes_string(y=colnames(drc)[3]),colour=col,linewidth=lwd,linetype=lty) +scale_y_continuous(name = ylab,limits = c(0,1)) + facet_grid(.~variable,scales='free_x')
+                for (nn in colnames(drc)[4:ncol(drc)]) .p1 <- .p1 + geom_line(aes_string(y=nn),colour=col,linewidth=lwd,linetype=lty)"
                 .eval(p1,env=environment())
                 
                 if (!is.null(nF)) {
@@ -451,7 +451,7 @@ setMethod("plot", signature(x='.responseCurve'),
                   colnames(x@response[[nn]]) <- c('Value','Response')
                   drc <- rbind(drc,data.frame(x@response[[nn]],variable=nn))
                 }
-                p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,size=lwd,linetype=lty) + facet_grid(.~variable,scales='free_x') +
+                p1 <- "ggplot(drc,aes(x=Value,y=Response)) + geom_line(colour=col,linewidth=lwd,linetype=lty) + facet_grid(.~variable,scales='free_x') +
                 scale_y_continuous(limits=ylim) + labs(y = ylab,x = xlab) + ggtitle(main) +
                 theme(axis.text=element_text(size=rel(cex.axis)),axis.title=element_text(size=rel(cex.lab)),plot.title = element_text(hjust = 0.5))"
                 p1 <- .eval(p1,env=environment())
