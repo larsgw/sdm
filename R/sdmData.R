@@ -674,7 +674,7 @@ setReplaceMethod('.addLog','sdmdata',
     train <- w[[1]]
     ww <- c()
     if (w[[2]][1] > 0) .addLog(d) <- paste(w[[2]][1],'records with NA from the train data are removed')
-    if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicarted records from the train data are removed')
+    if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicated records from the train data are removed')
   }
   
   train$rID <- 1:nrow(train)
@@ -704,7 +704,7 @@ setReplaceMethod('.addLog','sdmdata',
       bg <- w[[1]]
       ww <- c()
       if (w[[2]][1] > 0) .addLog(d) <- paste(w[[2]][1],'records with NA from the background data are removed')
-      if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicarted records from the background data are removed')
+      if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicated records from the background data are removed')
     }
     
     
@@ -729,7 +729,7 @@ setReplaceMethod('.addLog','sdmdata',
       test <- w[[1]]
       ww <- c()
       if (w[[2]][1] > 0) .addLog(d) <- paste(w[[2]][1],'records with NA from the test data are removed')
-      if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicarted records from the test data are removed')
+      if (w[[2]][2] > 0) .addLog(d) <- paste(w[[2]][2],'duplicated records from the test data are removed')
     }
     
     test$rID <- (nrow(train)+1):(nrow(test)+nrow(train))
