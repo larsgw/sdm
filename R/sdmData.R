@@ -139,7 +139,15 @@
   id <- c()
   sp <- .getSpeciesNames(d,sp)
   for (i in seq_along(sp)) {
-    id <- c(id,d@species[[sp[i]]]@presence,d@species[[sp[i]]]@absence,d@species[[sp[i]]]@abundance[,1],d@species[[sp[i]]]@background,d@species[[sp[i]]]@Multinomial[,1])
+    id <- c(
+      id,
+      d@species[[sp[i]]]@presence,
+      d@species[[sp[i]]]@absence,
+      d@species[[sp[i]]]@abundance[,1],
+      d@species[[sp[i]]]@numerical[,1],
+      d@species[[sp[i]]]@background,
+      d@species[[sp[i]]]@Multinomial[,1]
+    )
   }
   sort(unique(id))
 }
